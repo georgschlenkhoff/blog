@@ -6,7 +6,7 @@ categories: sqlite
 ---
 This article explains how you decrypt a SQLite database that was encrypted with [SQLCipher](https://github.com/sqlcipher/sqlcipher) via terminal.
 
-###1. Create a database script
+### 1. Create a database script
 
 ```
 PRAGMA key = 'yourpwd';
@@ -15,7 +15,7 @@ SELECT sqlcipher_export('plaintext');
 DETACH DATABASE plaintext;
 ```
 
-###2. Read in the script with sqlcipher
+### 2. Read in the script with sqlcipher
 
 ```
 sqlcipher yourdb.sqlite < script.sql
