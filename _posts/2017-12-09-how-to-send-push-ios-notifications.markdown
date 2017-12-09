@@ -21,4 +21,6 @@ phonegap serve
 
 Install the [PhoneGap Developer](https://itunes.apple.com/us/app/phonegap-developer/id843536693?mt=8) app on your iPhone and browse to the server address. Take the `Device Push ID` and send the notification:
 
+```
 phonegap push --deviceID someID --service apns --payload '{"aps": {"title": "Title", "alert": "Hello World"}}'
+```
