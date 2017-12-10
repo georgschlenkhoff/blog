@@ -10,7 +10,7 @@ This article explains how you decrypt a SQLite database that was encrypted with 
 
 ```
 PRAGMA key = 'yourpwd';
-ATTACH DATABASE '/Users/user/full-path/my.db' AS plaintext KEY '';
+ATTACH DATABASE '/Users/user/full-path/decrypted.db' AS plaintext KEY '';
 SELECT sqlcipher_export('plaintext');
 DETACH DATABASE plaintext;
 ```
@@ -18,5 +18,5 @@ DETACH DATABASE plaintext;
 ### 2. Read in the script with sqlcipher
 
 ```
-sqlcipher yourdb.sqlite < script.sql
+sqlcipher encypted.db < script.sql
 ```
