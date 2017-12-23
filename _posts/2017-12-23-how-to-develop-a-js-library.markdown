@@ -11,6 +11,7 @@ This article explains how to develop a Javascript library.
 
 ```
   |package.json
+  |index.js
   |lib
     |--index.js
     |--utils.js
@@ -51,7 +52,6 @@ config.json
 
 * Bootstrap `.package.json`
 
-
 ```
 {
   "name": "somename",
@@ -59,7 +59,8 @@ config.json
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=text --reporter=html mocha --watch --recursive --timeout 5000 test/**/*.test.js"
+    "test": "nyc --reporter=text --reporter=html mocha --watch --recursive --timeout 5000 test/**/*.test.js",
+    "doc": "node ./node_modules/documentation/bin/documentation.js build ./src/** -f html -o ./docs"
   },
   "author": "Georg Schlenkhoff",
   "license": "ISC",
@@ -68,15 +69,18 @@ config.json
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
+    "documentation": "^5.3.5",
     "nyc": "^11.4.1",
     "sinon": "^4.1.3"
   }
 }
 ```
 
+* Write README.md, describing capabilities and usage
 * Write the index.js as if new functions work
 * Write integration test in index.js
 * Scaffold functions with signatures
+* Write JsDoc comments, with help [:JsDoc](https://github.com/heavenshell/vim-jsdoc) in vim
 * Write unit tests for functions
 
 ====Iterate====
