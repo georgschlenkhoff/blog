@@ -38,14 +38,15 @@ config.json
 ```
 {
   "libs": [
-    "browser",
-    "jquery"
+    "chai",
+    "ecmascript"
   ],
   "plugins": {
     "requirejs": {
       "baseURL": "./",
       "paths": {}
-    }
+    },
+    "node": {}
   }
 }
 ```
@@ -60,7 +61,7 @@ config.json
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=text --reporter=html mocha --watch --recursive --timeout 5000 test/**/*.test.js",
-    "doc": "node ./node_modules/documentation/bin/documentation.js build ./src/** -f html -o ./docs"
+    "docs": "node ./node_modules/documentation/bin/documentation.js build ./src/** -f html -o ./docs && node ./node_modules/documentation/bin/documentation.js readme ./src/** --section=API"
   },
   "author": "Georg Schlenkhoff",
   "license": "ISC",
@@ -76,16 +77,41 @@ config.json
 }
 ```
 
-* Write README.md, describing capabilities and usage
+* Bootstrap README.md
+
+```
+![logo](https://raw.githubusercontent.com/georgschlenkhoff/project/master/assets/logo.png)
+
+Description
+
+## Features
+
+## Demo
+
+![demo](https://raw.githubusercontent.com/georgschlenkhoff/project/master/assets/demo.png)
+
+## Installation
+
+## Usage
+
+## API
+
+## Contributors
+
+* [georgschlenkhoff](https://github.com/georgschlenkhoff)
+```
+
+* Amend README.md, describing capabilities and usage
 * Write the index.js as if new functions work
 * Write integration test in index.js
 * Scaffold functions with signatures
 * Write JsDoc comments, with help [:JsDoc](https://github.com/heavenshell/vim-jsdoc) in vim
+* Build documentation with `npm run docs`
+* Deploy `docs` folder to [GitHub Pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/)
 * Write unit tests for functions
 
 ====Iterate====
 
 * Implement one function after the other
-* Write JSDOC (:JsDoc in vim) for function
 
 ====Iterate====
