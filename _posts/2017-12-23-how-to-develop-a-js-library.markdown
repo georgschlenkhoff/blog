@@ -68,7 +68,16 @@ config.json
   "dependencies": {
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.1.2",
+    "babel-minify": "^0.2.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-minify": "^0.2.0",
     "chai": "^4.1.2",
+    "eslint": "^4.14.0",
+    "eslint-plugin-flowtype": "^2.40.1",
+    "flow-bin": "^0.61.0",
     "mocha": "^4.0.1",
     "documentation": "^5.3.5",
     "nyc": "^11.4.1",
@@ -100,6 +109,66 @@ Description
 
 * [georgschlenkhoff](https://github.com/georgschlenkhoff)
 ```
+
+* Bootstrap . eslintrc.json
+
+```
+{
+    "parser": "babel-eslint",
+    "plugins": [
+        "flowtype"
+    ],
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:flowtype/recommended"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "no-console": "off",
+        "valid-jsdoc":
+        [
+          "error", { "prefer":
+            { "arg": "param", "argument": "param", "class": "constructor", "return": "returns" }
+          }
+        ]
+    }
+}
+```
+
+* Bootstrap .babelrc
+
+```
+{
+  "presets": ["flow"],
+  "env": {}
+}
+```
+
+* Start Babel cli with `npx babel
+
+// TODO: bootstrap travis and babel
+* Bootstrap Travis
+* Initalise flow with `flow init` in `src` directory
+* Start flow with `npx flow status`
 
 * Amend README.md, describing capabilities and usage
 * Write the index.js as if new functions work
