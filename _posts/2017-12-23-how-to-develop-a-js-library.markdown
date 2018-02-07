@@ -184,3 +184,5 @@ Description
 * Implement one function after the other
 
 ====Iterate====
+
+For those who like automation, I've provided a [Yeoman Generator](http://yeoman.io/generators/), [ModernJS(https://github.com/georgschlenkhoff/generator-modern-js#readme).
